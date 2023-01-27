@@ -1,17 +1,23 @@
 <div class="container py-5">
   <h3> <%= @list.name %></h3>
 
-<%= link_to "Back to list", root_path %>
-<%= link_to "Add a new bookmark", new_list_bookmark_path(@list.id) %>
-<%= link_to "Delete this list", list_path(@list), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+  <%= link_to "Back to lists", root_path, class: "btn btn-primary" %>
+  <%= link_to "Add a new bookmark", new_list_bookmark_path(@list.id), class: "btn btn-primary" %>
+  <%= link_to "Delete this list", delete_list_path(@list), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
 
-<div class="movies-container my-4 row">
-  <% if @list.movies.any? %>
-    <%= render 'shared/moviecard' %>
-  <% else %>
-    <div class="message p-3 rounded">
-      <h3>You don't have any movies in this list yet.</h3>
-      <p>What about you add some?</p>
-      <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "button button-main" %>
-    </div>
-  <% end %>
+  <div class="movies-container my-4 row">
+    <% if @list.movies.any? %>
+      <%= render 'shared/moviecard' %>
+    <% else %>
+      <div class="message p-3 rounded">
+        <h3>You don't have any movies in this list yet.</h3>
+        <p>What about you add some?</p>
+        <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "button button-main" %>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+  <div>
+  <%= render 'shared/listform' %>
+  </div>
+</div>
