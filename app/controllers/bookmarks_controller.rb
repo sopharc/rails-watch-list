@@ -24,7 +24,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
   end
-  end
 
   private
 

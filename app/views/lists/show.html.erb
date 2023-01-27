@@ -2,6 +2,7 @@
   <h3> <%= @list.name %></h3>
 
 <%= link_to "Back to list", root_path %>
+<%= link_to "Add a new bookmark", new_list_bookmark_path(@list.id) %>
 
 <div class="movies-container my-4 row">
   <% if @list.movies.any? %>
@@ -13,7 +14,4 @@
       <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "button button-main" %>
     </div>
   <% end %>
-
-<%= link_to "Add a new bookmark", new_list_bookmark_path(@list.id) %>
-
   </div>

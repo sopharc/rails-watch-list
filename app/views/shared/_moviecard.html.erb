@@ -1,15 +1,21 @@
+<%# delete not working %>
+
 
 <div class="list-index-content">
   <% @list.movies.each do |movie| %>
-    <div class="list-card-index">
-      <div class="list-card-content">
-        <p><%= movie.title %></p>
-          <p><i class="fa-solid fa-bookmark bookmark-icon"></i><%bookmark = Bookmark.find_by(list: @list, movie: movie) %></p>
+    <div class="list-card">
+        <div class="movie-image">
+          <img src="<%= movie.poster_url%>" alt="">
+        </div>
+        <div class="movie-info">
+          <p><%= movie.title %></p>
+           <p><i class="fa-solid fa-bookmark bookmark-icon"></i><%bookmark = Bookmark.find_by(list: @list, movie: movie) %></p>
+        </div>
+        <div class="movie-delete">
+        <hr>
             <p class="text-danger fw-bold"><%= link_to "Delete", bookmark_path(bookmark),
-          data: { turbo_method: :delete, turbo_confirm: "Continue?" } %></p>
-      </div>
+              data: { turbo_method: :delete, turbo_confirm: "Continue?" } %></p>
+        </div>
     </div>
   <% end %>
 </div>
-
-<%# delete not working %>
