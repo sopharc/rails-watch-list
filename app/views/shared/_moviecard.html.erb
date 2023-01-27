@@ -14,10 +14,12 @@
           </div>
           <div class="movie-delete p-2">
           <hr>
-              <p class="text-danger fw-bold"><%= link_to "Delete", bookmark_path(bookmark),
-                data: { turbo_method: :delete, turbo_confirm: "Continue?" } %></p>
+              <p class="text-danger fw-bold"><%= link_to "Delete", delete_bookmark_path(bookmark),
+                data: { turbo_method: :delete, turbo_confirm: "Remove #{movie.title} from your #{@list.name} list?" }, class: 'text-danger' %></p>
           </div>
       </div>
     <% end %>
   </div>
 </div>
+
+

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: :destroy
   # resources :reviews, only: :destroy
-
+  get 'delete_list/:id', to: 'lists#destroy', as: 'delete_list'
+  get 'delete_bookmarks/:id', to: 'bookmarks#destroy', as: 'delete_bookmark'
 
   # resources: model - gives you all CRUD
 end
